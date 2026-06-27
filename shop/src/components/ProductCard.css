@@ -1,0 +1,195 @@
+.product-card {
+  animation: fadeUp 0.5s var(--ease-out) both;
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.25s, transform 0.25s var(--ease-spring), box-shadow 0.25s;
+  height: 100%;
+}
+
+.card-inner:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* Visual section */
+.card-visual {
+  position: relative;
+  background: var(--card-color, #111);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-emoji {
+  font-size: clamp(56px, 8vw, 80px);
+  line-height: 1;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
+  transition: transform 0.4s var(--ease-spring);
+}
+
+.card-inner:hover .card-emoji {
+  transform: scale(1.12) translateY(-4px);
+}
+
+.card-glow {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle at 50% 70%, var(--accent-glow), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.card-inner:hover .card-glow { opacity: 1; }
+
+/* Badges */
+.card-badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 99px;
+  backdrop-filter: blur(8px);
+}
+
+.badge-best-seller { background: rgba(240, 165, 0, 0.25); color: var(--warning); border: 1px solid rgba(240,165,0,0.4); }
+.badge-new { background: rgba(76, 175, 135, 0.25); color: var(--success); border: 1px solid rgba(76,175,135,0.4); }
+.badge-sale { background: rgba(240, 98, 146, 0.25); color: var(--accent-2); border: 1px solid rgba(240,98,146,0.4); }
+.badge-top-rated { background: rgba(124, 106, 247, 0.25); color: var(--accent-light); border: 1px solid rgba(124,106,247,0.4); }
+
+.card-discount {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: var(--accent-2);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* Content */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  flex: 1;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stars { display: flex; gap: 2px; }
+
+.review-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.card-name {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.spec-pill {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 3px 10px;
+}
+
+/* Footer */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.card-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.price-current {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.price-original {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-family: var(--font-mono);
+}
+
+.btn-add {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: #fff;
+  transition: all 0.2s var(--ease-spring);
+  flex-shrink: 0;
+}
+
+.btn-add:hover {
+  background: var(--accent-light);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-accent);
+}
+
+.btn-add.added {
+  background: var(--success);
+  transform: scale(1.1);
+}
